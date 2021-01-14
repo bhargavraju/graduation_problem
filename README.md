@@ -26,19 +26,19 @@ C(k) = C1(k) + C2(k) + C3(k) + C4(k)
 Now, let's try calculating all the 4 values for k+1 days,
 
 <ins>sequences of length k+1 with last 2 values 00 -> C1(k+1)</ins>:<br /> 
-These can be formed by adding a 0 to existing sequences with length k and 0 at the end. But we cannot add 0 to sequences of length k with two 0's at the end as we are not allowed to have 3 0's in a row. So, the only way is to add 0 to k length sequences ending with '10'. So,<br />
+These can be formed by adding a 0 (mark k+1 day as absent) to existing sequences with length k and 0 at the end (absent on day k). But we cannot add 0 to sequences of length k with two 0's at the end (absent on day k and day k-1) as we are not allowed to have 3 0's in a row. So, the only way is to add 0 to k length sequences ending with '10'. So,<br />
 #### C1(k+1) = C3(k)
 
 <ins>sequences of length k+1 with last 2 values 01 -> C2(k+1)</ins>:<br />
-These can be formed by adding a 1 to existing sequences with length k and 0 at the end. So,<br />
+These can be formed by adding a 1 (mark k+1 day as present) to existing sequences with length k and 0 at the end (absent on day k). So,<br />
 #### C2(k+1) = C1(k)+C3(k)
 
 <ins>sequences of length k+1 with last 2 values 10 -> C3(k+1)</ins>:<br />
-These can be formed by adding a 0 to existing sequences with length k and 1 at the end. So,<br />
+These can be formed by adding a 0 (mark k+1 day as absent) to existing sequences with length k and 1 at the end (present on day k). So,<br />
 #### C3(k+1) = C2(k)+C4(k)
 
 <ins>sequences of length k+1 with last 2 values 11 -> C3(k+1)</ins>:<br />
-These can be formed by adding a 1 to existing sequences with length k and 1 at the end. So,<br />
+These can be formed by adding a 1 (mark k+1 day as present) to existing sequences with length k and 1 at the end (present on day k). So,<br />
 #### C4(k+1) = C2(k)+C4(k)
 
 Now that we have the necessary equations, take the base case with n=2 where each of these counts is equal to 1 and repeat these equations to get C1(n), C2(n), C3(n), C4(n)
